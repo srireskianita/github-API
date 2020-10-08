@@ -4,7 +4,6 @@ const config = require('../../../../config/global_config');
 const db = new Mongo(config.get('/mongoDbUrl'));
 
 const insertRepositories = async (userId,payload) => {
-  console.log(userId);
   const repository = new Repository(db);
   const postCommand= async (userId, payload) => repository.insertRepositories(userId, payload);
   return postCommand(userId, payload);
