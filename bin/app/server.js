@@ -4,6 +4,7 @@ const project = require('../../package.json');
 const wrapper = require('../helpers/utils/wrapper');
 const mongoConnectionPooling = require('../helpers/databases/mongodb/connection');
 const user = require('./user');
+const repository = require('./repository');
 
 
 function AppServer() {
@@ -45,6 +46,7 @@ function AppServer() {
   // authenticated client can access the end point, place code bellow
 
   user.routes(this.server);
+  repository.routes(this.server);
   //Initiation
 
   mongoConnectionPooling.init();
